@@ -1,4 +1,4 @@
-#To build you own OpenMaxIO UI: 
+# To build you own OpenMaxIO UI: 
 
 git clone https://github.com/OpenMaxIO/openmaxio-object-browser 
 cd openmaxio-object-browser/web-app 
@@ -8,7 +8,7 @@ cd ../
 make console 
 ./console server 
 
-#To connect OpenMaxIO UI to an existing Minio server run this command (replace 1.2.3.4:9000 to your address)
+# To connect OpenMaxIO UI to an existing Minio server run this command (replace 1.2.3.4:9000 to your address)
 
 CONSOLE_MINIO_SERVER=http://1.2.3.4:9000 ./console server 
 
