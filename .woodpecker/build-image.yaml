@@ -1,0 +1,43 @@
+# Build and publish Docker images for multiple architectures.
+#
+# Pushing an image to codeberg's container registry
+# The package owner will be the repo owner.
+#
+# This config also shows usage of yaml aliases and
+# was taken from https://codeberg.org/6543/docker-images/src/commit/37e29c227717c1c07d2776cddcf14725bf952875/.woodpecker/hello.yml
+
+when:
+  branch: main
+  event: [push, pull_request]
+
+variables:
+  - &file Dockerfile
+  - &repo https://github.com/jamesagarside/openmaxio-object-browser
+
+steps:
+  dryrun:
+    image: docker.io/woodpeckerci/plugin-docker-buildx:latest
+    settings:
+      dockerfile: *file
+      platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
+      dry_run: true
+      repo: *repo
+      tags: latest
+    when:
+      event: pull_request
+      path: *file
+
+  publish:
+    image: docker.io/woodpeckerci/plugin-docker-buildx:latest
+    settings:
+      dockerfile: *file
+      platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
+      repo: *repo
+      registry: registry.aquila.jgarside.co.uk
+      tags: latest
+      # username: ${CI_REPO_OWNER}
+      # password:
+      #   from_secret: cb_token
+    when:
+      event: push
+      path: *file

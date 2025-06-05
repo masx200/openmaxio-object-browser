@@ -1,5 +1,7 @@
 FROM node:20 AS build
 
+ARG TARGETARCH
+
 WORKDIR /app
 
 # Copy web-app and install/build
@@ -15,13 +17,15 @@ RUN yarn install && yarn build
 WORKDIR /app
 COPY . .
 
-# Install make and Go (official binary, not Debian package), then build console
+# Install make and Go (official binary, not Debian package), then build console and support buildx
 RUN apt-get update && apt-get install -y make curl \
-    && curl -LO https://go.dev/dl/go1.23.0.linux-arm64.tar.gz \
-    && rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.0.linux-arm64.tar.gz \
+    && GO_VERSION=1.23.0 \
+    && if [ "$TARGETARCH" = "amd64" ]; then GOARCH=amd64; else GOARCH=$TARGETARCH; fi \
+    && curl -LO https://go.dev/dl/go${GO_VERSION}.linux-${GOARCH}.tar.gz \
+    && rm -rf /usr/local/go && tar -C /usr/local -xzf go${GO_VERSION}.linux-${GOARCH}.tar.gz \
     && export PATH=$PATH:/usr/local/go/bin \
     && /usr/local/go/bin/go version \
-    && make console
+    && make console 
 
 # Final image
 FROM python:alpine
