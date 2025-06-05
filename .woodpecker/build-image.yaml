@@ -23,9 +23,9 @@ steps:
       dry_run: true
       repo: *repo
       tags: latest
-    when:
-      event: pull_request
-      path: *file
+    # when:
+    #   event: pull_request
+    #   path: *file
 
   publish:
     image: woodpeckerci/plugin-docker-buildx
@@ -38,6 +38,6 @@ steps:
       # username: ${CI_REPO_OWNER}
       # password:
       #   from_secret: cb_token
-    when:
-      event: push
-      path: *file
+    # when:
+    #   event: push
+    #   path: *file
