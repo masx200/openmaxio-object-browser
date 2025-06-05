@@ -12,7 +12,7 @@ when:
 
 variables:
   - &file Dockerfile
-  - &repo https://github.com/jamesagarside/openmaxio-object-browser
+  - &repo https://github.com/jamesagarside/openmaxio-object-browser/tree/openMaxIO-main
 
 steps:
   dryrun:
@@ -35,9 +35,9 @@ steps:
       repo: *repo
       registry: registry.aquila.jgarside.co.uk
       tags: latest
-      # username: ${CI_REPO_OWNER}
-      # password:
-      #   from_secret: cb_token
+      username: admin
+      password:
+        from_secret: aquila_registry_password
     # when:
     #   event: push
     #   path: *file
