@@ -21,7 +21,7 @@ steps:
       dockerfile: *file
       platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
       dry_run: true
-      repo: *repo
+      repo: openmaxio-object-browser
       tags: latest
     # when:
     #   event: pull_request
