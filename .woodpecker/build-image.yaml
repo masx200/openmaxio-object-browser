@@ -8,7 +8,7 @@
 
 when:
   branch: main
-  event: [push, pull_request]
+  event: [push, pull_request, manual]
 
 variables:
   - &file Dockerfile
