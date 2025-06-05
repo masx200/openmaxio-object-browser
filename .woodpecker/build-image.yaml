@@ -7,7 +7,7 @@
 # was taken from https://codeberg.org/6543/docker-images/src/commit/37e29c227717c1c07d2776cddcf14725bf952875/.woodpecker/hello.yml
 
 when:
-  branch: main
+  branch: openMaxIO-main
   event: [push, pull_request, manual]
 
 variables:
