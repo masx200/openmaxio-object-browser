@@ -12,7 +12,7 @@ when:
 
 variables:
   - &file Dockerfile
-  - &repo https://github.com/jamesagarside/openmaxio-object-browser/tree/openMaxIO-main
+  - &repo https://github.com/jamesagarside/openmaxio-object-browser
 
 steps:
   dryrun:
@@ -32,7 +32,7 @@ steps:
     settings:
       dockerfile: *file
       platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
-      repo: *repo
+      repo: openmaxio-object-browser
       registry: registry.aquila.jgarside.co.uk
       tags: latest
       username: admin
