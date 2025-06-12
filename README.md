@@ -1,6 +1,9 @@
-minio web console 已死,Web 管理功能全砍!使用 OpenMaxIO 恢复 MinIO 社区版的 Web 控制台功能!
+# minio web console 已死,Web 管理功能全砍!使用 OpenMaxIO 恢复 MinIO 社区版的 Web 控制台功能!
 
-docker-compose.yml
+```bash
+nano docker-compose.yml
+docker compose up -d
+```
 
 ```yml
 services:
