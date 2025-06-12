@@ -1,0 +1,62 @@
+services:
+  openmaxio-object-browser:
+    
+
+    command:
+      - "sh"
+      - "-c"
+      - "./console server --port 9090"
+
+    container_name: "openmaxio-object-browser"
+
+    environment:
+      - "PATH=/app:/opt/bitnami/minio-object-browser/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - "OS_ARCH=amd64"
+      - "APP_VERSION=2.0.1"
+      - "BITNAMI_APP_NAME=minio-object-browser"
+      - "CONSOLE_MINIO_SERVER=http://127.0.0.1:19000"
+
+    expose:
+      - "9090/tcp"
+
+    hostname: "fnos"
+
+    image: "registry.cn-hangzhou.aliyuncs.com/masx200/openmaxio-object-browser:1.7.6"
+
+    ipc: "private"
+
+    labels:
+      com.vmware.cp.artifact.flavor: "sha256:c50c90cfd9d12b445b011e6ad529f1ad3daea45c26d20b00732fae3cd71f6a83"
+      io.buildah.version: "1.40.0"
+      org.opencontainers.image.base.name: "scratch"
+      org.opencontainers.image.created: "2025-06-06T02:59:49Z"
+      org.opencontainers.image.description: "Application packaged by Broadcom, Inc."
+      org.opencontainers.image.ref.name: "2.0.1-debian-12-r1"
+      org.opencontainers.image.title: "minio-object-browser"
+      org.opencontainers.image.vendor: "Broadcom, Inc."
+      org.opencontainers.image.version: "2.0.1"
+
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "100m"
+
+    network_mode: "host"
+
+    privileged: true
+
+    restart: "always"
+
+    security_opt:
+      - "label=disable"
+
+    stdin_open: true
+
+    tty: true
+
+    user: "0:0"
+
+    working_dir: "/app"
+
+version: "3.6"
