@@ -11338,6 +11338,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash@npm:^4.18.1":
+  version: 4.18.1
+  resolution: "lodash@npm:4.18.1"
+  checksum: 10c0/757228fc68805c59789e82185135cf85f05d0b2d3d54631d680ca79ec21944ec8314d4533639a14b8bcfbd97a517e78960933041a5af17ecb693ec6eecb99a27
+  languageName: node
+  linkType: hard
+
 "log-update-async-hook@npm:^2.0.7":
   version: 2.0.7
   resolution: "log-update-async-hook@npm:2.0.7"
@@ -17947,7 +17954,7 @@ __metadata:
     kbar: "npm:^0.1.0-beta.46"
     knip: "npm:^5.44.4"
     local-storage-fallback: "npm:^4.1.3"
-    lodash: "npm:^4.17.21"
+    lodash: "npm:^4.18.1"
     luxon: "npm:^3.5.0"
     mds: "https://github.com/openmaxio/mds.git#a1369db4f33a385a6e71bd37fcd0e2ea687462dd"
     minio: "npm:^8.0.4"
